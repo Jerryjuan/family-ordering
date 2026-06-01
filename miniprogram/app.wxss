@@ -1,0 +1,165 @@
+/* 全局样式 */
+
+/* 颜色变量 */
+page {
+  --primary-color: #FF6B35;
+  --secondary-color: #F7931E;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --text-placeholder: #999999;
+  --bg-color: #F5F5F5;
+  --white: #FFFFFF;
+  --border-color: #E5E5E5;
+  --success-color: #07C160;
+  --warning-color: #FF976A;
+  --danger-color: #EE0A24;
+
+  font-size: 14px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* 公共样式 */
+.container {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: var(--white);
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 40rpx;
+  padding: 20rpx 40rpx;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn-primary:active {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 2rpx solid var(--primary-color);
+  border-radius: 40rpx;
+  padding: 18rpx 38rpx;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* 价格样式 */
+.price {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.price::before {
+  content: '¥';
+  font-size: 12px;
+}
+
+/* 状态标签 */
+.status-tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 12px;
+}
+
+.status-pending {
+  background-color: #FFF3E0;
+  color: #F7931E;
+}
+
+.status-processing {
+  background-color: #E3F2FD;
+  color: #1976D2;
+}
+
+.status-completed {
+  background-color: #E8F5E9;
+  color: #07C160;
+}
+
+.status-cancelled {
+  background-color: #FFEBEE;
+  color: #EE0A24;
+}
+
+/* 空状态 */
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-text {
+  color: var(--text-placeholder);
+  font-size: 14px;
+}
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background-color: var(--border-color);
+  margin: 20rpx 0;
+}
+
+/* flex 布局 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 文字省略 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 加载状态 */
+.loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}

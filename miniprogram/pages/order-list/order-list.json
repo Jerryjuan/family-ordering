@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "order-card": "/components/order-card/order-card"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "我的订单"
+}

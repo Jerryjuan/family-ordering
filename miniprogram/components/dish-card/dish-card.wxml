@@ -1,0 +1,33 @@
+<!-- 菜品卡片组件 -->
+<view class="dish-card" bindtap="onTap">
+  <view class="dish-image-wrap">
+    <image class="dish-image" src="{{dish.image || '/images/dishes/default.png'}}" mode="aspectFill" />
+    <view class="dish-category-tag" wx:if="{{showCategory && dish.category_name}}">
+      {{dish.category_icon}} {{dish.category_name}}
+    </view>
+  </view>
+  <view class="dish-info">
+    <view class="dish-name">{{dish.name}}</view>
+    <view class="dish-desc" wx:if="{{dish.description}}">{{dish.description}}</view>
+    <view class="dish-bottom">
+      <view class="dish-price">
+        <text class="price-symbol">¥</text>
+        <text class="price-value">{{dish.price}}</text>
+      </view>
+      <view class="dish-actions" wx:if="{{showCartBtn}}">
+        <!-- 数量控制 -->
+        <view class="quantity-control" wx:if="{{quantity > 0}}">
+          <view class="btn-minus" catchtap="onReduce">-</view>
+          <text class="quantity-text">{{quantity}}</text>
+        </view>
+        <view class="btn-add" catchtap="onAdd">+</view>
+      </view>
+      <!-- 管理端按钮 -->
+      <view class="admin-actions" wx:if="{{showAdminBtn}}">
+        <view class="btn-status {{dish.status === 1 ? 'online' : 'offline'}}" catchtap="onToggleStatus">
+          {{dish.status === 1 ? '上架中' : '已下架'}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

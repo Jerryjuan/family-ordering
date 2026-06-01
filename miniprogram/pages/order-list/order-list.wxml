@@ -1,0 +1,45 @@
+<!-- 订单列表页 -->
+<view class="page-order-list">
+  <!-- 状态筛选 -->
+  <view class="status-tabs">
+    <view
+      class="tab-item {{currentTab === -1 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="-1">
+      全部
+    </view>
+    <view
+      class="tab-item {{currentTab === 0 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="0">
+      待处理
+    </view>
+    <view
+      class="tab-item {{currentTab === 1 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="1">
+      制作中
+    </view>
+    <view
+      class="tab-item {{currentTab === 2 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="2">
+      已完成
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view wx:if="{{orders.length === 0 && !loading}}" class="empty-container">
+      <text class="empty-icon-text">📋</text>
+      <text class="empty-text">暂无订单</text>
+    </view>
+
+    <order-card
+      wx:for="{{orders}}"
+      wx:key="id"
+      order="{{item}}"
+      bind:tap="onOrderTap"
+    />
+  </view>
+</view>

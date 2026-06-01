@@ -1,0 +1,75 @@
+<!-- 数据统计页 -->
+<view class="page-admin-stats">
+  <!-- 今日概览 -->
+  <view class="section">
+    <view class="section-title">📊 今日概览</view>
+    <view class="stats-grid">
+      <view class="stat-card">
+        <text class="stat-value">{{overview.todayOrders}}</text>
+        <text class="stat-label">今日订单</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">¥{{overview.todayRevenue}}</text>
+        <text class="stat-label">今日营业额</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{overview.pendingOrders}}</text>
+        <text class="stat-label">待处理</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{overview.dishCount}}</text>
+        <text class="stat-label">上架菜品</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门菜品排行 -->
+  <view class="section">
+    <view class="section-title">🔥 热门菜品 TOP {{popularDishes.length}}</view>
+    <view class="popular-list">
+      <view class="popular-item" wx:for="{{popularDishes}}" wx:key="dish_id">
+        <view class="popular-rank rank-{{index < 3 ? index + 1 : 'other'}}">{{index + 1}}</view>
+        <view class="popular-info">
+          <text class="popular-name">{{item.dish_name}}</text>
+          <view class="popular-bar-wrap">
+            <view class="popular-bar" style="width: {{item.barWidth}}%"></view>
+          </view>
+        </view>
+        <view class="popular-stats">
+          <text class="popular-quantity">{{item.total_quantity}}份</text>
+          <text class="popular-revenue">¥{{item.total_revenue}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{popularDishes.length === 0}}" class="empty-state">
+        <text class="empty-text">暂无数据</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 近7天趋势 -->
+  <view class="section">
+    <view class="section-title">📈 近7天趋势</view>
+    <view class="trend-chart">
+      <view class="chart-bars">
+        <view class="chart-bar-item" wx:for="{{trendData}}" wx:key="date">
+          <view class="bar-wrap">
+            <view class="bar" style="height: {{item.barHeight}}%"></view>
+          </view>
+          <text class="bar-label">{{item.dayLabel}}</text>
+        </view>
+      </view>
+
+      <view class="trend-legend">
+        <view class="legend-item">
+          <text class="legend-label">订单总数</text>
+          <text class="legend-value">{{totalOrders7d}}</text>
+        </view>
+        <view class="legend-item">
+          <text class="legend-label">总营业额</text>
+          <text class="legend-value">¥{{totalRevenue7d}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

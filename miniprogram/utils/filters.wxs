@@ -1,0 +1,24 @@
+// WXS 工具 - 价格格式化
+// WXS 是小程序的脚本语言，可以在 WXML 中使用
+
+function formatPrice(price) {
+  var s = '' + price;
+  var dotIndex = s.indexOf('.');
+  if (dotIndex === -1) {
+    return s + '.00';
+  }
+  var decimals = s.substring(dotIndex + 1);
+  if (decimals.length === 1) {
+    return s + '0';
+  }
+  return s.substring(0, dotIndex + 3);
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+module.exports = {
+  formatPrice: formatPrice,
+  multiply: multiply
+};

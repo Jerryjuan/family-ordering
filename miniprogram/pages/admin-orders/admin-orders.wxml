@@ -1,0 +1,87 @@
+<!-- 订单管理页 -->
+<view class="page-admin-orders">
+  <!-- 状态筛选 -->
+  <view class="status-tabs">
+    <view
+      class="tab-item {{currentTab === -1 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="-1">
+      全部
+    </view>
+    <view
+      class="tab-item {{currentTab === 0 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="0">
+      待处理
+    </view>
+    <view
+      class="tab-item {{currentTab === 1 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="1">
+      制作中
+    </view>
+    <view
+      class="tab-item {{currentTab === 2 ? 'active' : ''}}"
+      bindtap="onTabChange"
+      data-status="2">
+      已完成
+    </view>
+  </view>
+
+  <!-- 订单列表 -->
+  <view class="order-list">
+    <view class="order-card" wx:for="{{orders}}" wx:key="id">
+      <!-- 订单头部 -->
+      <view class="order-header">
+        <view class="order-no-wrap">
+          <text class="order-no">{{order.order_no}}</text>
+          <text class="order-status status-{{item.statusClass}}">{{item.statusText}}</text>
+        </view>
+        <text class="order-time">{{item.created_at}}</text>
+      </view>
+
+      <!-- 订单内容 -->
+      <view class="order-body">
+        <text class="customer-name">👤 {{item.customer_name}}</text>
+        <view class="order-items-summary">
+          <text wx:for="{{item.items}}" wx:key="id" wx:for-item="dish">
+            {{dish.dish_name}} x{{dish.quantity}}{{index < item.items.length - 1 ? '、' : ''}}
+          </text>
+        </view>
+        <view class="order-remark" wx:if="{{item.remark}}">
+          <text class="remark-label">备注：</text>
+          <text class="remark-text">{{item.remark}}</text>
+        </view>
+      </view>
+
+      <!-- 订单底部 -->
+      <view class="order-footer">
+        <text class="order-total">¥{{item.total_price}}</text>
+        <view class="order-actions">
+          <!-- 待处理 -> 制作中 -->
+          <view class="action-btn btn-process" wx:if="{{item.status === 0}}" bindtap="onProcess" data-id="{{item.id}}">
+            开始制作
+          </view>
+          <!-- 制作中 -> 已完成 -->
+          <view class="action-btn btn-complete" wx:if="{{item.status === 1}}" bindtap="onComplete" data-id="{{item.id}}">
+            制作完成
+          </view>
+          <!-- 取消订单 -->
+          <view class="action-btn btn-cancel" wx:if="{{item.status === 0 || item.status === 1}}" bindtap="onCancel" data-id="{{item.id}}">
+            取消
+          </view>
+          <!-- 查看详情 -->
+          <view class="action-btn btn-detail" bindtap="onDetail" data-id="{{item.id}}">
+            详情
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{orders.length === 0 && !loading}}" class="empty-container">
+      <text class="empty-icon-text">📋</text>
+      <text class="empty-text">暂无订单</text>
+    </view>
+  </view>
+</view>

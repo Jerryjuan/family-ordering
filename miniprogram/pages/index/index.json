@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "dish-card": "/components/dish-card/dish-card",
+    "cart-bar": "/components/cart-bar/cart-bar"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "温馨小厨房"
+}

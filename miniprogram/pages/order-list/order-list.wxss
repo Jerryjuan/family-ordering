@@ -1,0 +1,52 @@
+/* 订单列表页样式 */
+.page-order-list {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 状态 Tab */
+.status-tabs {
+  display: flex;
+  background-color: #fff;
+  padding: 0 10rpx;
+  height: 88rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  height: 88rpx;
+  line-height: 88rpx;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #FF6B35;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  background-color: #FF6B35;
+  border-radius: 3rpx;
+}
+
+/* 订单列表 */
+.order-list {
+  padding: 20rpx;
+}
+
+.empty-icon-text {
+  font-size: 48px;
+  margin-bottom: 16rpx;
+}

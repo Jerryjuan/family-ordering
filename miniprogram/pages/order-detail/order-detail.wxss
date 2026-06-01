@@ -1,0 +1,151 @@
+/* 订单详情页样式 */
+.page-order-detail {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 140rpx;
+}
+
+/* 状态横幅 */
+.status-banner {
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.status-bg-pending {
+  background: linear-gradient(135deg, #F7931E 0%, #FFB74D 100%);
+}
+
+.status-bg-processing {
+  background: linear-gradient(135deg, #1976D2 0%, #64B5F6 100%);
+}
+
+.status-bg-completed {
+  background: linear-gradient(135deg, #07C160 0%, #66BB6A 100%);
+}
+
+.status-bg-cancelled {
+  background: linear-gradient(135deg, #EE0A24 0%, #EF5350 100%);
+}
+
+.status-icon {
+  font-size: 36px;
+  margin-right: 20rpx;
+}
+
+.status-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 信息区块 */
+.section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 20rpx;
+  padding: 24rpx;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12rpx 0;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #999;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.info-value {
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+  word-break: break-all;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+/* 菜品项 */
+.dish-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.dish-name {
+  font-size: 14px;
+  color: #333;
+  flex: 1;
+}
+
+.dish-right {
+  display: flex;
+  align-items: center;
+}
+
+.dish-quantity {
+  font-size: 13px;
+  color: #999;
+  margin-right: 20rpx;
+}
+
+.dish-price {
+  font-size: 14px;
+  color: #FF6B35;
+  min-width: 80rpx;
+  text-align: right;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16rpx;
+  margin-top: 8rpx;
+  border-top: 1rpx solid #f0f0f0;
+}
+
+.total-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.total-price {
+  font-size: 18px;
+  color: #FF6B35;
+  font-weight: bold;
+}
+
+/* 操作区域 */
+.action-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.08);
+}
+
+.btn-reorder {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+  color: #fff;
+  text-align: center;
+  padding: 24rpx;
+  border-radius: 44rpx;
+  font-size: 16px;
+  font-weight: bold;
+}

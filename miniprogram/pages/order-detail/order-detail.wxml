@@ -1,0 +1,50 @@
+<!-- 订单详情页 -->
+<wxs src="../../utils/filters.wxs" module="filters" />
+<view class="page-order-detail" wx:if="{{order}}">
+  <!-- 订单状态 -->
+  <view class="status-banner status-bg-{{statusClass}}">
+    <text class="status-icon">{{statusIcon}}</text>
+    <text class="status-text">{{statusText}}</text>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="section">
+    <view class="info-row">
+      <text class="info-label">订单号</text>
+      <text class="info-value">{{order.order_no}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">点餐人</text>
+      <text class="info-value">{{order.customer_name}}</text>
+    </view>
+    <view class="info-row" wx:if="{{order.remark}}">
+      <text class="info-label">备注</text>
+      <text class="info-value">{{order.remark}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">下单时间</text>
+      <text class="info-value">{{order.created_at}}</text>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="section">
+    <view class="section-title">菜品明细</view>
+    <view class="dish-item" wx:for="{{order.items}}" wx:key="id">
+      <text class="dish-name">{{item.dish_name}}</text>
+      <view class="dish-right">
+        <text class="dish-quantity">x{{item.quantity}}</text>
+        <text class="dish-price">¥{{filters.formatPrice(item.price * item.quantity)}}</text>
+      </view>
+    </view>
+    <view class="total-row">
+      <text class="total-label">合计</text>
+      <text class="total-price">¥{{order.total_price}}</text>
+    </view>
+  </view>
+
+  <!-- 再次点餐按钮 -->
+  <view class="action-area">
+    <view class="btn-reorder" bindtap="onReorder">再来一单</view>
+  </view>
+</view>

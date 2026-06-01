@@ -1,0 +1,45 @@
+<!-- 首页 - 菜单列表 -->
+<view class="page-index">
+  <!-- 顶部店铺信息 -->
+  <view class="shop-header">
+    <view class="shop-name">{{shopName}}</view>
+    <view class="shop-slogan">{{shopSlogan}}</view>
+  </view>
+
+  <!-- 分类 Tab -->
+  <scroll-view class="category-tabs" scroll-x enable-flex>
+    <view
+      class="tab-item {{currentCategory === 0 ? 'active' : ''}}"
+      bindtap="onCategoryTap"
+      data-id="0">
+      全部
+    </view>
+    <view
+      class="tab-item {{currentCategory === item.id ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      bindtap="onCategoryTap"
+      data-id="{{item.id}}">
+      {{item.icon}} {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 菜品列表 -->
+  <scroll-view class="dish-list" scroll-y enhanced show-scrollbar="{{false}}">
+    <view wx:if="{{dishes.length === 0}}" class="empty-container">
+      <text class="empty-icon-text">🍽️</text>
+      <text class="empty-text">暂无菜品</text>
+    </view>
+
+    <dish-card
+      wx:for="{{dishes}}"
+      wx:key="id"
+      dish="{{item}}"
+      showCartBtn="{{true}}"
+      bind:cartchange="onCartChange"
+    />
+  </scroll-view>
+
+  <!-- 购物车底栏 -->
+  <cart-bar />
+</view>

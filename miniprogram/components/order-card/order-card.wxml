@@ -1,0 +1,14 @@
+<!-- 订单卡片组件 -->
+<view class="order-card" bindtap="onTap">
+  <view class="order-header">
+    <text class="order-no">订单号: {{order.order_no}}</text>
+    <text class="order-status status-{{statusClass}}">{{statusText}}</text>
+  </view>
+  <view class="order-items">
+    <text class="order-items-text">{{itemsSummary}}</text>
+  </view>
+  <view class="order-footer">
+    <text class="order-price">¥{{order.total_price}}</text>
+    <text class="order-time">{{order.created_at}}</text>
+  </view>
+</view>

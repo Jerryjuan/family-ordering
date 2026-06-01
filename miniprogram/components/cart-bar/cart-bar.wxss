@@ -1,0 +1,80 @@
+/* 购物车底栏样式 */
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  z-index: 100;
+}
+
+.cart-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.cart-icon-wrap {
+  position: relative;
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #555;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30rpx;
+  border: 4rpx solid #333;
+}
+
+.cart-icon {
+  font-size: 24px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background-color: #FF6B35;
+  color: #fff;
+  font-size: 10px;
+  min-width: 32rpx;
+  height: 32rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8rpx;
+}
+
+.cart-price {
+  margin-left: 20rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+.cart-price .price-symbol {
+  font-size: 12px;
+}
+
+.cart-price .price-value {
+  font-size: 20px;
+}
+
+.cart-btn {
+  background-color: #666;
+  color: #fff;
+  padding: 16rpx 40rpx;
+  border-radius: 40rpx;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cart-btn.active {
+  background-color: #FF6B35;
+}
